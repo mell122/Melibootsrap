@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-py
+  template:
+    metadata:
+      labels:
+        app: api-py
+    spec:
+      containers:
+      - name: api-py
+        image: api-py:latest
+        imagePullPolicy: Never
+        ports: 
+        - containerPort: 5000
