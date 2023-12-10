@@ -26,7 +26,7 @@ async def github_webhook(request: Request):
     event_type = request.headers.get("X-Github-Event")
     if event_type == "push":
         # Handle "push" event
-        repo_name = event.repository.get("name")
+        repo_name = "meli"
 
         path = find_file("Dockerfile")
         if path != None:
