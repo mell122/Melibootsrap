@@ -1,7 +1,7 @@
 import subprocess
-from fastapi import FastAPI, HTTPException, Header
+from fastapi import FastAPI, HTTPException, Header, Request
 from pydantic import BaseModel
-import hmac, hashlib , os , docker
+import hmac, hashlib , os 
 
 app = FastAPI()
 
@@ -19,12 +19,12 @@ class GitHubEvent(BaseModel):
 
 # API Endpoints
 @app.post("/webhook")
-async def github_webhook(event: GitHubEvent, signature: str = Header(...)):
-    # Ensure the request comes from GitHub by validating the signature
-    validate_signature(signature, await event.body())
+async def github_webhook(request: Request):
 
     # Handle different GitHub events
-    if event.action == "push":
+    payload = await request.json()
+    event_type = request.headers.get("X-Github-Event")
+    if event_type == "push":
         # Handle "push" event
         repo_name = event.repository.get("name")
 
