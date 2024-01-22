@@ -62,3 +62,37 @@ Mention and thank any contributors, libraries, or resources that inspired or hel
 
 Provide your contact information for inquiries or feedback.
 
+## test and run
+
+# FastAPI Divisibility Checker
+
+A simple FastAPI application that checks whether a given number is even or odd.
+
+## Running the Application
+
+1. Install the required dependencies:
+
+    ```bash
+    pip install fastapi uvicorn
+    ```
+
+2. Run the FastAPI application:
+
+    ```bash
+    uvicorn __main__:app --host 0.0.0.0 --port 5000 --reload
+    ```
+
+3. Open your web browser or use a tool like `curl` or Postman to access the divisibility checker:
+
+    - Example URL: [http://127.0.0.1:5000/42](http://127.0.0.1:5000/42)
+  
+    Replace `42` with the desired number to check its divisibility.
+
+4. Remember to avoid accessing paths like `/` or `/favicon.ico`, as they are not defined in the application.
+
+## Additional Information
+
+- The application defines a single route: `/{number}`, where `number` is an integer to check for divisibility.
+- If you encounter a "404 Not Found" error, make sure you are accessing a valid route with a valid number in the URL.
+
+Feel free to modify the documentation to better fit your project's structure and details.
