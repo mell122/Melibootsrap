@@ -60,9 +60,8 @@ def test(service):
 
     else:
         return{"test case not found."}
-
-# GLOBAL / Helper FUNCTIONS
-
+    
+    
 # Continious Integration Docker image build
 def ci(path, tag):
     try:
